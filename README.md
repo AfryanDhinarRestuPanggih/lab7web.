@@ -1,204 +1,68 @@
-<div align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg" width="100" alt="PHP Logo">
-  <img src="https://www.svgrepo.com/show/353579/codeigniter.svg" width="100" alt="CodeIgniter 4 Logo">
-</div>
+# CodeIgniter 4 Application Starter
 
-## 1. Praktikum I   : PHP FRAMEWORK CODEINTEGER 4
-## 2. Praktikum II  : FRAMEWORK LANJUTAN (CRUD)
-## 3. Praktikum III : VIEW LAYOUT DAN VIEW CELL
+## What is CodeIgniter?
 
-# 📌 Laporan Praktikum 1: PHP Framework (CodeIgniter 4)
+CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
+More information can be found at the [official site](https://codeigniter.com).
 
-## 👤 Profil Mahasiswa
+This repository holds a composer-installable app starter.
+It has been built from the
+[development repository](https://github.com/codeigniter4/CodeIgniter4).
 
-| Atribut         | Keterangan            |
-| --------------- | --------------------- |
-| **Nama**        | Afryan Dhinar Restu Panggih    |
-| **NIM**         | 312310467          |
-| **Kelas**       | TI.23.A.5             |
-| **Mata Kuliah** | Pemrograman Website 2 |
+More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
 
----
+You can read the [user guide](https://codeigniter.com/user_guide/)
+corresponding to the latest version of the framework.
 
-## 🎯 Tujuan Praktikum
+## Installation & updates
 
-Dalam praktikum ini, tujuan utama yang ingin dicapai adalah sebagai berikut:
+`composer create-project codeigniter4/appstarter` then `composer update` whenever
+there is a new release of the framework.
 
-- Memahami konsep dasar dari penggunaan Framework dalam pengembangan aplikasi web.
-- Memahami konsep Model-View-Controller (MVC) yang menjadi dasar dalam framework CodeIgniter 4.
-- Mempelajari cara menginstal dan mengonfigurasi CodeIgniter 4 pada server lokal.
-- Membuat program sederhana menggunakan CodeIgniter 4.
-- Mengimplementasikan routing dan controller untuk mengatur akses ke berbagai halaman.
-- Menggunakan View dan Layout untuk membuat tampilan yang lebih terstruktur dan dinamis.
+When updating, check the release notes to see if there are any changes you might need to apply
+to your `app` folder. The affected files can be copied or merged from
+`vendor/codeigniter4/framework/app`.
 
----
+## Setup
 
-## ⚙️ Langkah-Langkah Praktikum
+Copy `env` to `.env` and tailor for your app, specifically the baseURL
+and any database settings.
 
-### 📌 1. Persiapan Awal
+## Important Change with index.php
 
-Sebelum memulai pengembangan dengan CodeIgniter 4, beberapa persiapan harus dilakukan:
+`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
+for better security and separation of components.
 
-1. Mengaktifkan ekstensi PHP yang dibutuhkan melalui `php.ini`.
-2. Melakukan restart Apache melalui XAMPP Control Panel agar perubahan diterapkan.
-3. Memastikan bahwa Composer telah terinstal untuk mempermudah pengelolaan dependency CodeIgniter 4.
+This means that you should configure your web server to "point" to your project's *public* folder, and
+not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
+framework are exposed.
 
-📷 **Screenshot Konfigurasi PHP.ini:**
+**Please** read the user guide for a better explanation of how CI4 works!
 
+## Repository Management
 
-![1](https://github.com/user-attachments/assets/7f11d7a3-2bad-4d87-b857-d188d61a9035)
+We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
+We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
+FEATURE REQUESTS.
 
+This repository is a "distribution" one, built by our release preparation script.
+Problems with it can be raised on our forum, or as issues in the main repository.
 
----
+## Server Requirements
 
-### 📌 2. Instalasi CodeIgniter 4
+PHP version 8.1 or higher is required, with the following extensions installed:
 
-Untuk memulai, kita perlu mengunduh dan menyiapkan CodeIgniter 4 pada server lokal:
+- [intl](http://php.net/manual/en/intl.requirements.php)
+- [mbstring](http://php.net/manual/en/mbstring.installation.php)
 
-1. Download CodeIgniter 4 dari [🔗 Situs Resmi CodeIgniter](https://codeigniter.com/download).
-2. Ekstrak file yang telah diunduh ke dalam folder `htdocs/lab11_ci/`.
-3. Ubah nama folder hasil ekstraksi menjadi `ci4` agar lebih mudah diakses.
-4. Jalankan aplikasi dengan mengakses `http://localhost/lab11_ci/ci4/public/`.
+> [!WARNING]
+> - The end of life date for PHP 7.4 was November 28, 2022.
+> - The end of life date for PHP 8.0 was November 26, 2023.
+> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
+> - The end of life date for PHP 8.1 will be December 31, 2025.
 
-📷 **Screenshot Tampilan Awal CodeIgniter 4:**
+Additionally, make sure that the following extensions are enabled in your PHP:
 
-![2](https://github.com/user-attachments/assets/876c2988-1cce-47ef-bc76-ca6e7c35bdce)
-
-
-
----
-
-### 📌 3. Menjalankan Command Line Interface (CLI)
-
-CodeIgniter memiliki CLI yang mempermudah pengembangan aplikasi. Untuk menjalankan CLI:
-
-```bash
-cd xampp/htdocs/lab11_ci/ci4/
-php spark
-```
-
-📷 **Screenshot Hasil Perintah CLI:**
-
-![3](https://github.com/user-attachments/assets/5c785d94-31c3-46c6-9f27-f2cb87ea6bb7)
-
-
----
-
-### 📌 4. Mengaktifkan Mode Debugging
-
-Untuk mempermudah debugging, aktifkan mode development dengan mengubah file `.env`:
-
-```bash
-# Buka file .env dan ubah:
-CI_ENVIRONMENT = development
-```
-
-📷 **Screenshot Konfigurasi Debugging:**
-
-![4](https://github.com/user-attachments/assets/5970b2a6-df73-40d7-9615-9cb4728983f1)
-
-
----
-
-### 📌 5. Menambahkan Routing Baru
-
-Routing digunakan untuk mengatur alamat URL yang akan diproses oleh aplikasi. Tambahkan kode berikut di `app/Config/Routes.php`:
-
-```php
-$routes->get('/about', 'Page::about');
-$routes->get('/contact', 'Page::contact');
-$routes->get('/faqs', 'Page::faqs');
-```
-
-Jalankan perintah berikut untuk melihat daftar routing yang telah dibuat:
-
-```bash
-php spark routes
-```
-
-📷 **Screenshot CLI & Error Page:**
-
-![5](https://github.com/user-attachments/assets/6b7a5909-328d-45b0-aa5c-c989439a2fed)
-![6](https://github.com/user-attachments/assets/edc63132-7982-4e00-ab5b-9ed1545b4d1c)
-
----
-
-### 📌 6. Membuat Controller Page
-
-Buat file `Page.php` di `app/Controllers/` dengan isi sebagai berikut:
-
-```php
-<?php
-namespace App\Controllers;
-class Page extends BaseController {
-    public function about() { echo "Ini halaman About"; }
-    public function contact() { echo "Ini halaman Contact"; }
-    public function faqs() { echo "Ini halaman FAQ"; }
-}
-```
-
-📷 **Screenshot Tampilan About Page:**
-
-![7](https://github.com/user-attachments/assets/ed5d30cc-6461-4c5f-ade9-80b820a41586)
-
-
----
-
-### 📌 7. Membuat View untuk Halaman About
-
-Buat file `app/Views/about.php` dengan kode berikut:
-
-```php
-<!DOCTYPE html>
-<html>
-<head>
-    <title><?= $title; ?></title>
-</head>
-<body>
-    <h1><?= $title; ?></h1>
-    <p><?= $content; ?></p>
-</body>
-</html>
-```
-
-📷 **Screenshot Tampilan View About Page:**
-
-![8](https://github.com/user-attachments/assets/089e84ce-ff91-4b64-bd24-52ad9ac387cd)
-
-
----
-
-### 📌 8. Menambahkan Layout Web dengan CSS
-
-Untuk meningkatkan tampilan website, kita akan menggunakan template header dan footer:
-
-1. Simpan file `style.css` di `public/`
-2. Buat file `header.php` dan `footer.php` di `app/Views/template/`
-3. Ubah `about.php` agar menggunakan `include`:
-
-```php
-<?= $this->include('template/header'); ?>
-<h1><?= $title; ?></h1>
-<p><?= $content; ?></p>
-<?= $this->include('template/footer'); ?>
-```
-
-📷 **Screenshot Tampilan dengan Template:**
-
-![9](https://github.com/user-attachments/assets/ece7ce51-7a28-474c-967c-fa0da2259aa4)
-
-
----
-
-## ✅ Kesimpulan
-
-Dari praktikum ini, kita telah memahami dasar-dasar penggunaan framework CodeIgniter 4. Beberapa hal yang telah kita pelajari antara lain:
-
-- Instalasi dan konfigurasi awal CodeIgniter 4.
-- Menjalankan CodeIgniter melalui CLI.
-- Membuat dan mengelola routing untuk berbagai halaman dalam website.
-- Membuat Controller dan View untuk menampilkan konten dinamis.
-- Menerapkan layout dengan template header dan footer.
-- Menggunakan CSS untuk mempercantik tampilan website.
-
-Dengan menyelesaikan praktikum ini, kita mendapatkan pemahaman yang lebih baik tentang bagaimana CodeIgniter 4 mempermudah pengembangan aplikasi berbasis web dengan struktur yang lebih terorganisir dan efisien. 🚀🔥
+- json (enabled by default - don't turn it off)
+- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
+- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
