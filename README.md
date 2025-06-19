@@ -3,11 +3,15 @@
   <img src="https://www.svgrepo.com/show/353579/codeigniter.svg" width="100" alt="CodeIgniter 4 Logo">
 </div>
 
-## 1. Praktikum I   : PHP FRAMEWORK CODEINTEGER 4
-## 2. Praktikum II  : FRAMEWORK LANJUTAN (CRUD)
-## 3. Praktikum III : VIEW LAYOUT DAN VIEW CELL
+## 📖 Daftar Praktikum
 
-# 📌 Laporan Praktikum 1: PHP Framework (CodeIgniter 4)
+1. [Praktikum 1: PHP Framework CodeIgniter 4](#praktikum-1-php-framework-codeigniter-4)
+2. [Praktikum 2: Framework Lanjutan (CRUD)](#praktikum-2-framework-lanjutan-crud)
+3. [Praktikum 3: View Layout dan View Cell](#praktikum-3-view-layout-dan-view-cell)
+
+---
+
+## Praktikum 1: PHP Framework CodeIgniter 4
 
 ## 👤 Profil Mahasiswa
 
